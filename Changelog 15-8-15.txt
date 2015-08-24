@@ -1,0 +1,24 @@
+Changelog:
+1) Added height,width,xOffset,yOffset to Entity. these now have to be initialized in their constructors (see Player, Dummy or Spike). Allows more flexibility (stated later). Experiment with different values to get best result in terms of visuals
+
+2) Added Collision enumeration to Mob. Added a Mob object collidedMob to it as well.
+
+3) Added Mob.mobCollision() to set action related to what kind of Mob collision occurs with. Sets the value of collisionAction to a member of the enumeration Collision (stated above), can be overriden for different mobs to interact differently.
+
+4) Added Level.mobCollision(). this one checks collision (rectangle intersection) and returns a Mob (if present) or null. checks with every enemy present on that level, from the arraylist mobs.
+
+5) Added a new version of Level.tileCollision, just feed it what Entity it's working for and it'll do the same check as the first one, except now there's no need to worry about the sprites being square as this works with width and height. this is one of the reasons all those new variables were needed for.
+
+6) Added knight to the list of mobs in Level. Now Level will handle the updating and rendering of knight. And knight is now also a candidate for mobCollision (as is demonstrated by KingCherno)
+
+7) Changed yOffset of Spike to 3, looks better now.
+
+To Add Entity to Level:
+
+Create Entity sub-class, give sprite, width, height, xOffset, yOffset. for the sake of simplicity, the supplied x and y should be multiplied by 16 (<<4) so that when adding it can be done by tile precision (see Spike).
+Then go to the level subclass this will be in, and in generateLevel put in add(new [Entity class](x,y)); ... that's it :v it'll do the rest itself according to its update and render methods.
+
+what happens in Level.add() is that it initializes the entity for the current level and then adds it to its appropriate arraylist(instanceof). when level.update,render,remove are called these get used.
+
+
+Praise The Sun! \[T]/

@@ -1,0 +1,4 @@
+Stone Wall 1 (0,0) - 808080
+Brick Wall 1 (0,3) - 7F5900
+Brick wall 2 (1,3) - 7F3300
+Ground 2 (1,1) - 593300

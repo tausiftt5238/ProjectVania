@@ -1,2 +1,2 @@
 # ProjectVania
-Game made by me and Sayotan.
+Game made by me and Sayontan.
